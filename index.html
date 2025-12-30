@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector公司2026马年新春祝福</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+        
+        :root {
+            --primary-red: #C41E3A; /* 主色调：中国红 */
+            --secondary-red: #E63946; /* 辅助红 */
+            --light-red: #F8E1E3; /* 浅红背景 */
+            --gold: #FFD700; /* 金色（搭配红，凸显年味/马年） */
+            --dark: #1E293B;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        body {
+            background-color: #F5F0F1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .card {
+            width: 100%;
+            max-width: 450px;
+            background-color: var(--white);
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(196, 30, 58, 0.2);
+            overflow: hidden;
+            position: relative;
+            border: 2px solid var(--primary-red);
+        }
+        
+        /* 头部渐变红背景 + 奔马移动动画 */
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20 80 Q50 20 80 80" stroke="rgba(255,215,0,0.1)" stroke-width="2" fill="none"/><path d="M10 40 Q40 10 70 40" stroke="rgba(255,215,0,0.1)" stroke-width="2" fill="none"/></svg>');
+            background-size: 60px;
+            animation: movePattern 15s linear infinite;
+        }
+        
+        /* 奔马动画（核心马年元素） */
+        .horse-icon {
+            position: absolute;
+            top: 50%;
+            left: -60px;
+            transform: translateY(-50%);
+            font-size: 48px;
+            color: rgba(255, 215, 0, 0.9);
+            animation: runHorse 8s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes movePattern {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-50px, -30px);
+            }
+        }
+        
+        @keyframes runHorse {
+            0% {
+                left: -60px;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                left: calc(100% + 60px);
+                opacity: 0;
+            }
+        }
+        
+        .card-header h1 {
+            color: var(--white);
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-header .year-tag {
+            color: var(--gold);
+            font-size: 20px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            animation: flashGold 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes flashGold {
+            0% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+        
+        /* 卡片主体 */
+        .card-body {
+            padding: 35px 25px;
+        }
+        
+        .message {
+            color: var(--dark);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+        
+        .message .highlight {
+            color: var(--primary-red);
+            font-weight: 700;
+        }
+        
+        /* 马年核心祝福模块（三要素：龙马精神、马到成功、万马奔腾） */
+        .year-features {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 35px;
+        }
+        
+        .feature {
+            text-align: center;
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background-color: var(--light-red);
+            color: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            margin: 0 auto 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover .feature-icon {
+            transform: translateY(-5px) rotate(10deg);
+            background-color: var(--primary-red);
+            color: var(--gold);
+            box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
+        }
+        
+        .feature-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .feature-desc {
+            font-size: 12px;
+            color: var(--secondary-red);
+            opacity: 0.8;
+        }
+        
+        /* 新春烟花动画（红色+金色氛围） */
+        .fireworks {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            opacity: 0;
+            animation: fireworks 6s ease-in-out infinite;
+        }
+        
+        @keyframes fireworks {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(-20px) scale(1);
+            }
+            20% {
+                transform: translateY(-40px) scale(1.5);
+                box-shadow: 0 0 15px var(--gold), 0 0 30px var(--primary-red);
+            }
+            30% {
+                transform: translateY(-60px) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(200px) scale(0);
+                opacity: 0;
+                box-shadow: none;
+            }
+        }
+        
+        /* 卡片底部（优化官网链接样式） */
+        .card-footer {
+            background-color: var(--light-red);
+            padding: 22px 25px;
+            text-align: center;
+            border-top: 1px solid rgba(196, 30, 58, 0.2);
+        }
+        
+        .card-footer .company-slogan {
+            font-size: 15px;
+            color: var(--primary-red);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .card-footer .copyright {
+            font-size: 12px;
+            color: var(--dark);
+            opacity: 0.6;
+            margin-bottom: 20px;
+        }
+        
+        /* 优化官网链接样式，贴合整体风格 */
+        .official-website {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(196, 30, 58, 0.1);
+        }
+        
+        .official-website:hover {
+            background-color: var(--secondary-red);
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 18px rgba(196, 30, 58, 0.4);
+        }
+        
+        .official-website i {
+            font-size: 16px;
+        }
+        
+        /* 响应式适配 */
+        @media (max-width: 480px) {
+            .card {
+                border-radius: 18px;
+            }
+            
+            .card-header {
+                padding: 30px 15px;
+            }
+            
+            .card-header h1 {
+                font-size: 28px;
+            }
+            
+            .card-body {
+                padding: 28px 20px;
+            }
+            
+            .year-features {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .feature {
+                flex: 0 0 45%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-horse horse-icon"></i>
+            <h1>Vector公司</h1>
+            <p class="year-tag">2026丙午马年 · 新春大吉</p>
+        </div>
+        <div class="card-body">
+            <p class="message">
+                律回春晖渐，万象始更新！值此<span class="highlight">2026马年新春</span>来临之际，Vector公司向您及您的团队致以最诚挚的祝福：祝您新春快乐，阖家幸福，<span class="highlight">龙马精神，马到成功</span>！<br><br>
+                感恩过去一年的并肩同行与鼎力支持，新的一年，我们愿与您携手并进，如骏马奔腾，共拓新局，共赢未来，再创辉煌佳绩！
+            </p>
+            
+            <div class="year-features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-horse-head"></i>
+                    </div>
+                    <div class="feature-name">龙马精神</div>
+                    <div class="feature-desc">意气风发，斗志昂扬</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    <div class="feature-name">马到成功</div>
+                    <div class="feature-desc">诸事顺遂，功成业就</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="feature-name">万马奔腾</div>
+                    <div class="feature-desc">蓬勃发展，势不可挡</div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <p class="company-slogan">Vector公司 · 创新科技 · 共赴新程</p>
+            <p class="copyright">© 2026 Vector Company. All Rights Reserved.</p>
+            <!-- 仅保留公司官网链接，删除其他社交媒体链接 -->
+            <a href="https://www.vector.com/cn/zh/" class="official-website" target="_blank">
+                <i class="fas fa-globe"></i>
+                访问Vector公司官网
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 1. 创建新春烟花动画（红色+金色氛围）
+        function createFireworks() {
+            const primaryRed = getComputedStyle(document.documentElement).getPropertyValue('--primary-red').trim();
+            const secondaryRed = getComputedStyle(document.documentElement).getPropertyValue('--secondary-red').trim();
+            const gold = getComputedStyle(document.documentElement).getPropertyValue('--gold').trim();
+            const colors = [primaryRed, secondaryRed, gold];
+            
+            const container = document.querySelector('.card');
+            
+            for (let i = 0; i < 30; i++) {
+                const firework = document.createElement('div');
+                firework.classList.add('fireworks');
+                firework.style.left = `${Math.random() * 100}%`;
+                firework.style.top = `${Math.random() * 60}%`;
+                firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                firework.style.animationDelay = `${Math.random() * 6}s`;
+                firework.style.width = `${Math.random() * 10 + 8}px`;
+                firework.style.height = `${Math.random() * 10 + 8}px`;
+                container.appendChild(firework);
+            }
+        }
+
+        // 2. 页面加载完成后初始化动画
+        window.addEventListener('load', function() {
+            createFireworks();
+        });
+    </script>
+</body>
+</html>
